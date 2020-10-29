@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BarcodeScanner</string>
+    <string name="scanned">Escaneados: %1$s</string>
+    <string name="dialog_title">Atención</string>
+    <string name="dialog_message">Debe aplicar los cambios para continuar</string>
+    <string name="accept">Aceptar</string>
+    <string name="missing_permissions_message">Se denegaron los permisos necesarios.</string>
+</resources>

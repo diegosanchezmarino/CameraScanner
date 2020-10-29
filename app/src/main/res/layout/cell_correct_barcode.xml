@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/barcodeValue"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:ellipsize="end"
+    android:gravity="center_vertical|start"
+    android:maxLines="1"
+    android:padding="15dp"
+    android:textColor="@color/black"
+    android:textSize="22sp"
+    app:drawableEndCompat="@drawable/ic_check"
+    app:drawableTint="@color/green" />
