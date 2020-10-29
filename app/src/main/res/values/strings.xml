@@ -5,4 +5,6 @@
     <string name="dialog_message">Debe aplicar los cambios para continuar</string>
     <string name="accept">Aceptar</string>
     <string name="missing_permissions_message">Se denegaron los permisos necesarios.</string>
+    <string name="limit_message_title">Limite alcanzado</string>
+    <string name="limit_message_body">Envie los escaneos para continuar</string>
 </resources>

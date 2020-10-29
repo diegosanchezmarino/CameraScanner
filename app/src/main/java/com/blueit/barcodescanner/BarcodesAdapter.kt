@@ -3,6 +3,7 @@ package com.blueit.barcodescanner
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.blueit.barcodescanner.model.CustomBarcode
 import com.blueit.barcodescanner.viewholders.BarcodeViewHolder
 import com.blueit.barcodescanner.viewholders.CorrectBarcodeViewHolder
 import com.blueit.barcodescanner.viewholders.IncorrectBarcodeViewHolder

@@ -7,7 +7,6 @@ const val barcodesExtraKey = "barcodesScanned"
 const val barcodesToScanExtraKey = "barcodesScanned"
 
 
-
 const val REQUEST_CODE_PERMISSIONS = 10
 val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
 

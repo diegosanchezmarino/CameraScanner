@@ -1,7 +1,7 @@
 package com.blueit.barcodescanner.viewholders
 
 import android.view.View
-import com.blueit.barcodescanner.CustomBarcode
+import com.blueit.barcodescanner.model.CustomBarcode
 import kotlinx.android.synthetic.main.cell_correct_barcode.view.*
 
 class CorrectBarcodeViewHolder(itemView: View) : BarcodeViewHolder(itemView) {

@@ -2,6 +2,7 @@ package com.blueit.barcodescanner
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.blueit.barcodescanner.model.CustomBarcode
 
 class BarcodesViewModel : ViewModel() {
 
@@ -31,12 +32,12 @@ class BarcodesViewModel : ViewModel() {
     fun addBarcode(customBarcode: CustomBarcode) {
 
 
-        if(barcodesToScan.any { it == customBarcode.rawValue })
+        if (barcodesToScan.any { it == customBarcode.rawValue })
             customBarcode.isCorrect = true
 
 
         var actualBarcodes = barcodesScanned.value!!
-        if(actualBarcodes.add(customBarcode)){
+        if (actualBarcodes.add(customBarcode)) {
             barcodesScanned.value = actualBarcodes
         }
 

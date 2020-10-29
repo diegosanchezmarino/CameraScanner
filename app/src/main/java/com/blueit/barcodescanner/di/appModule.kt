@@ -7,10 +7,6 @@ import org.koin.dsl.module
 
 val appModule = module {
 
-    // single instance of HelloRepository
-//    single { Repository(get()) }
-//    single { Preferences(androidApplication()) }
-//
 
     viewModel { BarcodesViewModel() }
 }

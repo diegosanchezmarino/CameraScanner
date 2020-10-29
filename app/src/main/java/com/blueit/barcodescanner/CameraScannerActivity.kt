@@ -1,5 +1,6 @@
 package com.blueit.barcodescanner
 
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.os.Bundle
@@ -9,7 +10,9 @@ import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.camera.core.CameraSelector
 import androidx.camera.core.CameraSelector.DEFAULT_BACK_CAMERA
+import androidx.camera.core.CameraX
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -18,10 +21,11 @@ import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import kotlinx.android.synthetic.main.activity_scanner_camera.*
+import kotlinx.android.synthetic.main.view_limit_reached.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.util.concurrent.Executor
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-
 
 class CameraScannerActivity : AppCompatActivity() {
 
@@ -32,21 +36,11 @@ class CameraScannerActivity : AppCompatActivity() {
 
     var limit: Int? = null
 
-    private var finishDialog: AlertDialog? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scanner_camera)
-
-        finishDialog = AlertDialog.Builder(this)
-            .setTitle(R.string.dialog_title)
-            .setMessage(R.string.dialog_message)
-            .setPositiveButton(R.string.accept) { _, _ ->
-                applyScannedValues()
-            }
-            .setCancelable(false)
-            .create()
 
         val extras = intent.extras
 
@@ -88,8 +82,7 @@ class CameraScannerActivity : AppCompatActivity() {
                 )
             }
             if ((limit != null && it.size == limit)) {
-                if (!finishDialog?.isShowing!!)
-                    finishDialog?.show()
+                limitDialog.visibility = VISIBLE
             }
 
         })
@@ -121,13 +114,11 @@ class CameraScannerActivity : AppCompatActivity() {
             // Used to bind the lifecycle of cameras to the lifecycle owner
             val cameraProvider: ProcessCameraProvider = cameraProviderFuture.get()
 
-
             val preview = Preview.Builder()
                 .build()
                 .also {
                     it.setSurfaceProvider(viewFinder.surfaceProvider)
                 }
-
 
             val imageAnalyzer = ImageAnalysis.Builder()
                 .build()
@@ -217,8 +208,11 @@ class CameraScannerActivity : AppCompatActivity() {
             intent.putExtras(bundle)
             startActivityForResult(appCompatActivity, intent, startScannerRequestCode, null)
         }
+
+
     }
 }
+
 
 
 

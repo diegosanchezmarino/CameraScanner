@@ -1,4 +1,4 @@
-package com.blueit.barcodescanner
+package com.blueit.barcodescanner.model
 
 class CustomBarcode {
 
@@ -18,7 +18,7 @@ class CustomBarcode {
     override fun equals(other: Any?): Boolean {
         var result = false
 
-        if((other is CustomBarcode) && other.rawValue == this.rawValue)
+        if ((other is CustomBarcode) && other.rawValue == this.rawValue)
             result = true
 
         return result
