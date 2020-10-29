@@ -6,34 +6,25 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
 
-class App: Application() {
+class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
-        startKoin{
+        startKoin {
             androidContext(this@App)
             modules(listOf(appModule))
         }
 
         instance = this
 
-//        if (BuildConfig.DEBUG) {
-//            // ONLY LOGS IN DEBUG MODE
-//            Timber.plant(DebugTree())
-//        }
-
-
-
 
     }
 
 
-    companion object{
+    companion object {
         lateinit var instance: App
     }
-
-
 
 
 }

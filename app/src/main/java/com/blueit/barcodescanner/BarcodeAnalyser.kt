@@ -2,6 +2,7 @@ package com.blueit.barcodescanner
 
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.ImageProxy
+import com.blueit.barcodescanner.model.CustomBarcode
 import com.google.mlkit.vision.barcode.BarcodeScanning
 import com.google.mlkit.vision.common.InputImage
 import java.nio.ByteBuffer
@@ -42,7 +43,7 @@ class BarcodeAnalyser(private val listener: BarcodeListener) : ImageAnalysis.Ana
                     // Task completed successfully
                     // ...
                     barcodes.forEach { barcode ->
-                        barcode.rawValue?.let {rawValue ->
+                        barcode.rawValue?.let { rawValue ->
                             listener(CustomBarcode(rawValue))
                         }
                     }

@@ -21,9 +21,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".CameraScannerActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        </activity>
+        <activity
+            android:name=".CameraScannerActivity"
+            android:theme="@style/Camera"/>
     </application>
 
 </manifest>

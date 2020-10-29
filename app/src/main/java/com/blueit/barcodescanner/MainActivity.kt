@@ -39,27 +39,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun start(){
+    fun start() {
         CameraScannerActivity.startScanner(this)
     }
 
-    fun startWithLimit(){
-        CameraScannerActivity.startScanner(this,2)
+    fun startWithLimit() {
+        CameraScannerActivity.startScanner(this, 2)
     }
 
-    fun startWithList(){
+    fun startWithList() {
         var list = ArrayList<String>()
-        list.add("7798051852282")
-        CameraScannerActivity.startScanner(this,valuesToScan = list)
+        list.add("12345")
+        CameraScannerActivity.startScanner(this, valuesToScan = list)
     }
 
-    fun startWithLimitAndList(){
+    fun startWithLimitAndList() {
         var list = ArrayList<String>()
-        list.add("7798051852282")
-        CameraScannerActivity.startScanner(this,2,list)
+        list.add("12345")
+        list.add("23456")
+        list.add("34567")
+        CameraScannerActivity.startScanner(this, 4, list)
     }
-
-
 
 
 }
