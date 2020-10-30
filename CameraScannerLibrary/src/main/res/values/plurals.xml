@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="missing_scans">
+        <item quantity="one">Falta escanear %1$s item.</item>
+        <item quantity="other">Faltan escanear %1$s items.</item>
+    </plurals>
+</resources>

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.blueit.barcodescanner">
+    package="com.blueit.camerascanner">
 
     <uses-feature android:name="android.hardware.camera.any" />
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
-        android:name=".App"
+        android:name="com.blueit.camerascannerlibrary.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.BarcodeScanner">
+        android:theme="@style/Theme.camerascanner">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +21,10 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".CameraScannerActivity"
-            android:theme="@style/Camera"/>
+        <activity android:name="com.blueit.camerascannerlibrary.CameraScannerActivity">
+        </activity>
+
+
     </application>
 
 </manifest>
