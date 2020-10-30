@@ -1,5 +1,6 @@
 package com.blueit.camerascannerlibrary
 
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
 import android.os.Bundle
@@ -183,7 +184,7 @@ class CameraScannerActivity : AppCompatActivity() {
         private const val TAG = "CameraXBasic"
 
         fun startScanner(
-            appCompatActivity: AppCompatActivity,
+            activity: Activity,
             limitScan: Int? = null,
             valuesToScan: ArrayList<String>? = null
         ) {
@@ -198,9 +199,9 @@ class CameraScannerActivity : AppCompatActivity() {
                 bundle.putStringArrayList(barcodesToScanExtraKey, it)
             }
 
-            var intent = Intent(appCompatActivity, CameraScannerActivity::class.java)
+            var intent = Intent(activity, CameraScannerActivity::class.java)
             intent.putExtras(bundle)
-            startActivityForResult(appCompatActivity, intent, startScannerRequestCode, null)
+            startActivityForResult(activity, intent, startScannerRequestCode, null)
         }
 
 
