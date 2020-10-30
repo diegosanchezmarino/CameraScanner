@@ -1,2 +1,3 @@
+include ':CameraScannerLibrary'
 include ':app'
-rootProject.name = "BarcodeScanner"
+rootProject.name = "camerascanner"
