@@ -17,8 +17,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_scanner_camera.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -27,7 +27,7 @@ class CameraScannerActivity : AppCompatActivity() {
     private lateinit var cameraExecutor: ExecutorService
 
 
-    private val viewModel: BarcodesViewModel by viewModel()
+    val viewModel: BarcodesViewModel by lazy { ViewModelProvider(this).get(BarcodesViewModel::class.java) }
 
     var limit: Int? = null
 
