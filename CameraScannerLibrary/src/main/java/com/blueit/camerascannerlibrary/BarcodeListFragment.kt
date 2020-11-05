@@ -7,15 +7,15 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_barcode_list.*
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 
 class BarcodeListFragment : Fragment() {
 
-    val viewModel: BarcodesViewModel by sharedViewModel()
-
+    val viewModel: BarcodesViewModel by lazy { ViewModelProvider(requireActivity()).get(BarcodesViewModel::class.java) }
 
     val adapter = BarcodesAdapter()
 
