@@ -1,4 +1,5 @@
 <resources>
+    <public type="string" name="app_name" />
     <string name="app_name">camerascanner</string>
     <string name="scanned">Escaneados: %1$s</string>
     <string name="dialog_title">Atención</string>
