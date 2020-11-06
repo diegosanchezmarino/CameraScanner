@@ -4,7 +4,8 @@ import android.Manifest
 
 const val limitExtraKey = "limit"
 const val barcodesExtraKey = "barcodesScanned"
-const val barcodesToScanExtraKey = "barcodesScanned"
+const val barcodesToScanExtraKey = "barcodesToScan"
+const val barcodesToAvoidExtraKey = "barcodesToAvoid"
 
 
 const val REQUEST_CODE_PERMISSIONS = 10

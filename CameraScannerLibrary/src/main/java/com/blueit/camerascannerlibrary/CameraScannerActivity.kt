@@ -18,6 +18,7 @@ import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.blueit.camerascannerlibrary.model.CustomBarcode
 import kotlinx.android.synthetic.main.scanner_lib_activity_scanner_camera.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
@@ -46,6 +47,11 @@ class CameraScannerActivity : AppCompatActivity() {
             extras.get(barcodesToScanExtraKey)?.let {
                 viewModel.barcodesToScan =
                     extras.getStringArrayList(barcodesToScanExtraKey) as ArrayList<String>
+            }
+
+            extras.get(barcodesToAvoidExtraKey)?.let {
+                viewModel.barcodesToAvoid =
+                    extras.getStringArrayList(barcodesToAvoidExtraKey) as ArrayList<String>
             }
 
         }
@@ -118,19 +124,9 @@ class CameraScannerActivity : AppCompatActivity() {
                 .build()
                 .also {
                     it.setAnalyzer(cameraExecutor,
-                        com.blueit.camerascannerlibrary.BarcodeAnalyser { barcode ->
-
-                            limit?.let {
-
-                                var size = viewModel.barcodesScanned.value!!.size
-                                if (size < it)
-                                    viewModel.addBarcode(barcode)
-                            } ?: run {
-                                viewModel.addBarcode(barcode)
-                            }
-
-
+                        BarcodeAnalyser { barcode ->
                             Log.d(TAG, "Barcode detected: ${barcode.rawValue}")
+                            processNewBarcode(customBarcode = barcode)
                         })
                 }
             // Select back camera as a default
@@ -149,6 +145,31 @@ class CameraScannerActivity : AppCompatActivity() {
             }
 
         }, ContextCompat.getMainExecutor(this))
+    }
+
+    private fun processNewBarcode(customBarcode: CustomBarcode){
+
+
+        if (customBarcode.rawValue.length > 20){
+            Log.d(TAG, "Barcode: ${customBarcode.rawValue} is ${customBarcode.rawValue.length} characters long, more than 20 characters")
+            return
+        }
+
+        if(viewModel.barcodesToAvoid.any{ it == customBarcode.rawValue}){
+            Log.d(TAG, "Barcode: ${customBarcode.rawValue} has already been scanned before")
+            return
+        }
+
+
+
+        limit?.let {
+
+            var size = viewModel.barcodesScanned.value!!.size
+            if (size < it)
+                viewModel.addBarcode(customBarcode)
+        } ?: run {
+            viewModel.addBarcode(customBarcode)
+        }
     }
 
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
@@ -186,7 +207,8 @@ class CameraScannerActivity : AppCompatActivity() {
         fun startScanner(
             activity: Activity,
             limitScan: Int? = null,
-            valuesToScan: ArrayList<String>? = null
+            valuesToScan: ArrayList<String>? = null,
+            valuesToAvoid: ArrayList<String>? = null
         ) {
             var bundle = Bundle()
 
@@ -197,6 +219,9 @@ class CameraScannerActivity : AppCompatActivity() {
 
             valuesToScan?.let {
                 bundle.putStringArrayList(barcodesToScanExtraKey, it)
+            }
+            valuesToAvoid?.let {
+                bundle.putStringArrayList(barcodesToAvoidExtraKey, it)
             }
 
             var intent = Intent(activity, CameraScannerActivity::class.java)

@@ -9,6 +9,7 @@ class BarcodesViewModel : ViewModel() {
 
     var barcodesScanned: MutableLiveData<LinkedHashSet<CustomBarcode>> = MutableLiveData()
     var barcodesToScan: ArrayList<String> = ArrayList()
+    var barcodesToAvoid: ArrayList<String> = ArrayList()
 
     init {
         restart()
