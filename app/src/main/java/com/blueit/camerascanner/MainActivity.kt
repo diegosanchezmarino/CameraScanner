@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         scannerButton.setOnClickListener {
-            startWithLimitAndList()
+            startWithLimitListAndAvoidList()
         }
 
 
@@ -63,6 +63,21 @@ class MainActivity : AppCompatActivity() {
         list.add("34567")
         CameraScannerActivity.startScanner(this, 4, list)
     }
+
+    fun startWithLimitListAndAvoidList() {
+
+        var list = ArrayList<String>()
+        list.add("12345")
+        list.add("23456")
+        list.add("34567")
+
+        var avoidList = ArrayList<String>()
+        avoidList.add("123")
+        avoidList.add("456")
+
+        CameraScannerActivity.startScanner(this, 4, list, avoidList)
+    }
+
 
 
 }
