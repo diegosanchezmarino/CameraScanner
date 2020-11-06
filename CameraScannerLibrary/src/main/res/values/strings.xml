@@ -1,11 +1,11 @@
 <resources>
-    <public type="string" name="app_name" />
-    <string name="app_name">camerascanner</string>
-    <string name="scanned">Escaneados: %1$s</string>
-    <string name="dialog_title">Atención</string>
-    <string name="dialog_message">Debe aplicar los cambios para continuar</string>
-    <string name="accept">Aceptar</string>
-    <string name="missing_permissions_message">Se denegaron los permisos necesarios.</string>
-    <string name="limit_message_title">Limite alcanzado</string>
-    <string name="limit_message_body">Envie los escaneos para continuar</string>
+    <public type="string" name="scanner_lib_app_name" />
+    <string name="scanner_lib_app_name">camerascanner</string>
+    <string name="scanner_lib_scanned">Escaneados: %1$s</string>
+    <string name="scanner_lib_dialog_title">Atención</string>
+    <string name="scanner_lib_dialog_message">Debe aplicar los cambios para continuar</string>
+    <string name="scanner_lib_accept">Aceptar</string>
+    <string name="scanner_lib_missing_permissions_message">Se denegaron los permisos necesarios.</string>
+    <string name="scanner_lib_limit_message_title">Limite alcanzado</string>
+    <string name="scanner_lib_limit_message_body">Envie los escaneos para continuar</string>
 </resources>

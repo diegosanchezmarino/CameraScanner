@@ -8,9 +8,8 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import kotlinx.android.synthetic.main.fragment_barcode_list.*
+import kotlinx.android.synthetic.main.scanner_lib_fragment_barcode_list.*
 
 
 class BarcodeListFragment : Fragment() {
@@ -24,7 +23,7 @@ class BarcodeListFragment : Fragment() {
         viewgroup: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_barcode_list, viewgroup, false)
+        return inflater.inflate(R.layout.scanner_lib_fragment_barcode_list, viewgroup, false)
 
 
     }

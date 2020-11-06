@@ -18,7 +18,7 @@ import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.android.synthetic.main.activity_scanner_camera.*
+import kotlinx.android.synthetic.main.scanner_lib_activity_scanner_camera.*
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -34,7 +34,7 @@ class CameraScannerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_scanner_camera)
+        setContentView(R.layout.scanner_lib_activity_scanner_camera)
 
         val extras = intent.extras
 
@@ -66,11 +66,11 @@ class CameraScannerActivity : AppCompatActivity() {
 
 
             if (viewModel.barcodesToScan.isEmpty()) {
-                amount.text = getString(R.string.scanned, it.size.toString())
+                amount.text = getString(R.string.scanner_lib_scanned, it.size.toString())
             } else {
                 var missingAmount = viewModel.barcodesToScan.size - it.count { it.isCorrect }
                 amount.text = resources.getQuantityString(
-                    R.plurals.missing_scans,
+                    R.plurals.scanner_lib_missing_scans,
                     missingAmount,
                     missingAmount.toString()
                 )
@@ -172,7 +172,7 @@ class CameraScannerActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(
                     this,
-                    R.string.missing_permissions_message,
+                    R.string.scanner_lib_missing_permissions_message,
                     Toast.LENGTH_SHORT
                 ).show()
                 finish()
