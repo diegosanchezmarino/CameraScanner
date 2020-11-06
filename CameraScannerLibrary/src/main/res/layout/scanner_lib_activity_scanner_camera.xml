@@ -20,7 +20,7 @@
         android:id="@+id/amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
+        android:textColor="@color/scanner_lib_white"
         android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@id/container"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -28,7 +28,7 @@
 
     <include
         android:id="@+id/limitDialog"
-        layout="@layout/view_limit_reached"
+        layout="@layout/scanner_lib_view_limit_reached"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:visibility="gone"
@@ -51,9 +51,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/ic_check"
+        android:src="@drawable/scanner_lib_ic_check"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:tint="@color/white" />
+        app:tint="@color/scanner_lib_white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

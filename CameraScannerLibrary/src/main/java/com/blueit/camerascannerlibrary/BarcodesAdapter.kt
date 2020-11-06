@@ -17,17 +17,17 @@ class BarcodesAdapter : RecyclerView.Adapter<BarcodeViewHolder>() {
 
 
         return if (barcodes.toList().reversed()[position].isCorrect)
-            R.layout.cell_correct_barcode
+            R.layout.scanner_lib_cell_correct_barcode
         else
-            R.layout.cell_incorrect_barcode
+            R.layout.scanner_lib_cell_incorrect_barcode
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BarcodeViewHolder {
         var view = LayoutInflater.from(parent.context).inflate(viewType, parent, false)
 
         return when (viewType) {
-            R.layout.cell_correct_barcode -> CorrectBarcodeViewHolder(view)
-            R.layout.cell_incorrect_barcode -> IncorrectBarcodeViewHolder(view)
+            R.layout.scanner_lib_cell_correct_barcode -> CorrectBarcodeViewHolder(view)
+            R.layout.scanner_lib_cell_incorrect_barcode -> IncorrectBarcodeViewHolder(view)
             else -> throw Exception("Incorrect viewtype")
         }
     }
